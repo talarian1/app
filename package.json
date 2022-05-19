@@ -5,6 +5,7 @@
     "start": "node helloworld"
   },
   "dependencies": {
+    "minimist": "1.2.5",
     "send": "^0.16.2"
   },
   "devDependencies": {
