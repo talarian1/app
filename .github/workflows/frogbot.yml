@@ -13,19 +13,13 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
-      # Install prerequisites
-      - name: Set up Java
-        uses: actions/setup-java@v3
-        with:
-          java-version: "11"
-          distribution: "temurin"
-
       - uses: jfrog/frogbot@v1
         env:
           # [Mandatory]
           # JFrog platform URL
           JF_URL: ${{ secrets.JF_URL }}
-
+          
+          JF_INSTALL_DEPS_CMD: "npm i"
           # [Mandatory if JF_ACCESS_TOKEN is not provided]
           # JFrog username with 'read' permissions for Xray. Must be provided with JF_PASSWORD
           #JF_USER: ${{ secrets.JF_USER }}
